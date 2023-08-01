@@ -26,7 +26,6 @@ class AnimationsCarousel extends StatefulWidget {
 }
 
 class _AnimationsCarouselState extends State<AnimationsCarousel> {
-
   final PageController _pageController = PageController(initialPage: 0);
 
   int _activePage = 0;
@@ -62,15 +61,14 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List<Widget>.generate(
                   _animationsList.length,
-                      (index) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: CircleAvatar(
-                      radius: 8,
-                      backgroundColor: _activePage == index
-                          ? Colors.amber
-                          : Colors.grey,
-                    ),
-                  )),
+                  (index) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: CircleAvatar(
+                          radius: 8,
+                          backgroundColor:
+                              _activePage == index ? Colors.amber : Colors.grey,
+                        ),
+                      )),
             ),
           ),
         ),
@@ -78,4 +76,3 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     );
   }
 }
-

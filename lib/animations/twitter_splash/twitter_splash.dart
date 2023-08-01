@@ -82,7 +82,8 @@ class _TwitterSplashScreenState extends State<TwitterSplashScreen>
           bottom: 32,
           height: 100,
           child: ContributorsCard(
-            imageUrl: "https://ca.slack-edge.com/T02TLUWLZ-U02CDNRLMSA-4aa8ad906c93-72",
+            imageUrl:
+                "https://ca.slack-edge.com/T02TLUWLZ-U02CDNRLMSA-4aa8ad906c93-72",
             name: "Aditya Bhawsar",
             email: "aditya.bhawsar@mutualmobile.com",
           ),
