@@ -1,0 +1,42 @@
+name: flutter_animations_example
+description: A Flutter project that showcases animations.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.0
+
+  cupertino_icons: ^1.0.2
+
+# Dev Dependencies
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  analyzer: ^5.2.0
+  flutter_lints: ^2.0.0
+
+# Assets
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+# Flutter localization
+flutter_intl:
+  enabled: true
+  class_name: Strings
+  main_locale: en
+  arb_dir: lib/localization/l10n
+  output_dir: lib/localization/generated
