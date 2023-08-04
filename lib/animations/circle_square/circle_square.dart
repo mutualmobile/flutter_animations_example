@@ -186,6 +186,13 @@ class _CircleSquareAnimationState extends State<CircleSquareAnimation>
       ],
     );
   }
+
+  @override
+  dispose() {
+    _rotateCircleController.dispose();
+    _rotateSquareController.dispose();
+    super.dispose();
+  }
 }
 
 class ThreeQuarterCirclePainter extends CustomPainter {
