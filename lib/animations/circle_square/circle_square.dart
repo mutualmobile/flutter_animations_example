@@ -93,35 +93,15 @@ class _CircleSquareAnimationState extends State<CircleSquareAnimation>
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AnimatedBuilder(
-                              animation: _rotateCircleController,
-                              builder: (context, child) {
-                                return Transform.rotate(
-                                  angle: _rotateCircleValue.value * pi / 180,
-                                  child: CustomPaint(
-                                    size: const Size(120, 120),
-                                    painter: ThreeQuarterCirclePainter(4),
-                                  ),
-                                );
-                              },
-                            ),
+                          ThreeQuarterCircle(
+                            rotateCircleController: _rotateCircleController,
+                            rotateCircleValue: _rotateCircleValue,
+                            missingQuarter: 4,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AnimatedBuilder(
-                              animation: _rotateCircleController,
-                              builder: (context, child) {
-                                return Transform.rotate(
-                                  angle: _rotateCircleValue.value * pi / 180,
-                                  child: CustomPaint(
-                                    size: const Size(120, 120),
-                                    painter: ThreeQuarterCirclePainter(3),
-                                  ),
-                                );
-                              },
-                            ),
+                          ThreeQuarterCircle(
+                            rotateCircleController: _rotateCircleController,
+                            rotateCircleValue: _rotateCircleValue,
+                            missingQuarter: 3,
                           ),
                         ],
                       ),
@@ -130,35 +110,15 @@ class _CircleSquareAnimationState extends State<CircleSquareAnimation>
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AnimatedBuilder(
-                              animation: _rotateCircleController,
-                              builder: (context, child) {
-                                return Transform.rotate(
-                                  angle: _rotateCircleValue.value * pi / 180,
-                                  child: CustomPaint(
-                                    size: const Size(120, 120),
-                                    painter: ThreeQuarterCirclePainter(1),
-                                  ),
-                                );
-                              },
-                            ),
+                          ThreeQuarterCircle(
+                            rotateCircleController: _rotateCircleController,
+                            rotateCircleValue: _rotateCircleValue,
+                            missingQuarter: 1,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AnimatedBuilder(
-                              animation: _rotateCircleController,
-                              builder: (context, child) {
-                                return Transform.rotate(
-                                  angle: _rotateCircleValue.value * pi / 180,
-                                  child: CustomPaint(
-                                    size: const Size(120, 120),
-                                    painter: ThreeQuarterCirclePainter(2),
-                                  ),
-                                );
-                              },
-                            ),
+                          ThreeQuarterCircle(
+                            rotateCircleController: _rotateCircleController,
+                            rotateCircleValue: _rotateCircleValue,
+                            missingQuarter: 2,
                           ),
                         ],
                       ),
@@ -177,7 +137,7 @@ class _CircleSquareAnimationState extends State<CircleSquareAnimation>
           child: Card(
             child: ContributorsCard(
               imageUrl:
-                  "https://ca.slack-edge.com/T02TLUWLZ-U02CDNRLMSA-4aa8ad906c93-72",
+              "https://ca.slack-edge.com/T02TLUWLZ-U02CDNRLMSA-4aa8ad906c93-72",
               name: "Aditya Bhawsar",
               email: "aditya.bhawsar@mutualmobile.com",
             ),
@@ -192,6 +152,39 @@ class _CircleSquareAnimationState extends State<CircleSquareAnimation>
     _rotateCircleController.dispose();
     _rotateSquareController.dispose();
     super.dispose();
+  }
+}
+
+class ThreeQuarterCircle extends StatelessWidget {
+  final AnimationController rotateCircleController;
+  final Animation<double> rotateCircleValue;
+
+  final int missingQuarter;
+
+  const ThreeQuarterCircle({
+    super.key,
+    required this.rotateCircleController,
+    required this.rotateCircleValue,
+    required this.missingQuarter,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: AnimatedBuilder(
+        animation: rotateCircleController,
+        builder: (context, child) {
+          return Transform.rotate(
+            angle: rotateCircleValue.value * pi / 180,
+            child: CustomPaint(
+              size: const Size(120, 120),
+              painter: ThreeQuarterCirclePainter(missingQuarter),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
 
