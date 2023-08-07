@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'animations/circle_square/circle_square.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
 
   final List<Widget> _animationsList = [
     const TwitterSplashScreen(),
+    const CircleSquareAnimation(),
   ];
 
   @override

@@ -6,4 +6,6 @@ Twitter Splash Animation - Aditya Bhawsar
 
 https://github.com/mutualmobile/flutter_animations_example/assets/89836238/a5443af4-5745-48d7-b4b7-39866bf94f83
 
+Circular Square Loading - Aditya Bhawsar
 
+https://github.com/mutualmobile/flutter_animations_example/assets/89836238/128f5c28-44d6-439e-84cb-114d31d4e2bc
