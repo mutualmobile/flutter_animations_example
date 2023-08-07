@@ -32,8 +32,8 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
   int _activePage = 0;
 
   final List<Widget> _animationsList = [
-    const CircleSquareAnimation(),
     const TwitterSplashScreen(),
+    const CircleSquareAnimation(),
   ];
 
   @override
