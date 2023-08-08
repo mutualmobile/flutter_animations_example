@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'animations/circle_square/circle_square.dart';
+import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 
 void main() {
+  makeStatusBarTransparent();
   runApp(const MyApp());
+}
+
+void makeStatusBarTransparent() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -34,6 +43,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
   final List<Widget> _animationsList = [
     const TwitterSplashScreen(),
     const CircleSquareAnimation(),
+    const RainbowLoader(),
   ];
 
   @override
