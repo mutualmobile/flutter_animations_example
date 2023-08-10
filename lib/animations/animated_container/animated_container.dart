@@ -43,17 +43,20 @@ class _AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
           color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: AnimatedContainer( //https://api.flutter.dev/flutter/widgets/AnimatedContainer-class.html
+            child: AnimatedContainer(
+              //https://api.flutter.dev/flutter/widgets/AnimatedContainer-class.html
               duration: const Duration(seconds: 4), // Animation duration
               width: _shapeWidth,
               height: _shapeHeight,
               decoration: BoxDecoration(
                   borderRadius: _shapeBorderRadius, color: _color),
-              curve: Curves.bounceInOut, // https://api.flutter.dev/flutter/animation/Curves-class.html
+              curve: Curves
+                  .bounceInOut, // https://api.flutter.dev/flutter/animation/Curves-class.html
             ),
           ),
         ),
-        FilledButton( // start animation using button click
+        FilledButton(
+            // start animation using button click
             onPressed: _start, // call start method to begin animation
             child: const Text('Start Animation')),
         const Positioned(
