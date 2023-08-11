@@ -13,14 +13,17 @@ class AnimatedContainerScreen extends StatefulWidget {
 }
 
 class _AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
-  double _shapeWidth = 20; // initial width of shape
-  double _shapeHeight = 20; // initial height of shape
-  Color _color = Colors.greenAccent; // initial color of shape
+  late double _shapeWidth; // initial width of shape
+  late double _shapeHeight; // initial height of shape
+  late Color _color; // initial color of shape
   late BorderRadiusGeometry _shapeBorderRadius; // initial border radius
 
   @override
   void initState() {
     super.initState();
+    _shapeWidth = 20;
+    _shapeHeight = 20;
+    _color = Colors.greenAccent;
     _shapeBorderRadius = BorderRadius.circular(8);
   }
 
