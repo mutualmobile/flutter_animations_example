@@ -23,6 +23,7 @@ class _AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
     super.initState();
     _shapeBorderRadius = BorderRadius.circular(8);
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
