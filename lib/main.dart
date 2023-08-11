@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 
 import 'animations/circle_square/circle_square.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
-import 'animations/circle_square/circle_square.dart';
 import 'animations/fi_splash/fi_splash.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 
