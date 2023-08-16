@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../contributors_card.dart';
+import '../../generated/assets.dart';
 
 class CircleSquareAnimation extends StatefulWidget {
   const CircleSquareAnimation({super.key});
@@ -136,8 +137,8 @@ class _CircleSquareAnimationState extends State<CircleSquareAnimation>
           height: 100,
           child: Card(
             child: ContributorsCard(
-              imageUrl:
-                  "https://ca.slack-edge.com/T02TLUWLZ-U02CDNRLMSA-4aa8ad906c93-72",
+              imageUrl: Assets.aditya,
+              isAsset: true,
               name: "Aditya Bhawsar",
               email: "aditya.bhawsar@mutualmobile.com",
             ),

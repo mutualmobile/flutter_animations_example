@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../contributors_card.dart';
+import '../../generated/assets.dart';
 
 class TwitterSplashScreen extends StatefulWidget {
   const TwitterSplashScreen({super.key});
@@ -82,8 +83,8 @@ class _TwitterSplashScreenState extends State<TwitterSplashScreen>
           bottom: 32,
           height: 100,
           child: ContributorsCard(
-            imageUrl:
-                "https://ca.slack-edge.com/T02TLUWLZ-U02CDNRLMSA-4aa8ad906c93-72",
+            imageUrl: Assets.aditya,
+            isAsset: true,
             name: "Aditya Bhawsar",
             email: "aditya.bhawsar@mutualmobile.com",
           ),
