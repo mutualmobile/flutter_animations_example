@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 class ContributorsCard extends StatelessWidget {
   final String imageUrl;
+  final bool isAsset;
   final String name;
   final String email;
+  final Color? textColor;
 
   const ContributorsCard({
     super.key,
     required this.imageUrl,
+    this.isAsset = false,
     required this.name,
     required this.email,
+    this.textColor,
   });
 
   @override
@@ -22,10 +26,15 @@ class ContributorsCard extends StatelessWidget {
           child: SizedBox(
             height: 72,
             width: 72,
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.fill,
-            ),
+            child: isAsset
+                ? Image.asset(
+                    imageUrl,
+                    fit: BoxFit.fill,
+                  )
+                : Image.network(
+                    imageUrl,
+                    fit: BoxFit.fill,
+                  ),
           ),
         ),
         Column(
@@ -34,14 +43,20 @@ class ContributorsCard extends StatelessWidget {
           children: [
             Text(
               name,
-              style: Theme.of(context).textTheme.headlineSmall,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(color: textColor),
               textAlign: TextAlign.start,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               email,
-              style: Theme.of(context).textTheme.labelMedium,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelMedium
+                  ?.copyWith(color: textColor),
               textAlign: TextAlign.start,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
