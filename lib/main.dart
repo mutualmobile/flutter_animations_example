@@ -47,7 +47,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const TwitterSplashScreen(),
     const CircleSquareAnimation(),
     const RainbowLoader(),
-    const AnimatedContainerScreen()
+    const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
   ];
