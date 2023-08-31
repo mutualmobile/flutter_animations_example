@@ -5,5 +5,4 @@ class Assets {
   static const String aditya = 'assets/images/aditya.jpeg';
   static const String shubham = 'assets/images/shubham.png';
   static const String twitter = 'assets/images/twitter.png';
-
 }
