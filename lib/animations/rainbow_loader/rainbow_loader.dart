@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import '../../generated/assets.dart';
 import 'package:sliding_up_panel2/sliding_up_panel2.dart';
 
 import '../../contributors_card.dart';
@@ -201,8 +202,8 @@ class _RainbowLoaderState extends State<RainbowLoader>
             // bottom: 32 to avoid parent indicator positioned at bottom
             padding: EdgeInsets.only(left: 8, right: 8, bottom: 32),
             child: ContributorsCard(
-              imageUrl:
-                  "https://ca.slack-edge.com/T02TLUWLZ-U02BR1HSNS2-59c1dffa5a83-512",
+              imageUrl: Assets.shubham,
+              isAsset: true,
               name: "Shubham Singh",
               email: "shubham.singh@mutualmobile.com",
             ),
