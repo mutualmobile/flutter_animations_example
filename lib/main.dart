@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'animations/circle_square/circle_square.dart';
+import 'animations/animated_container/animated_container.dart';
 import 'animations/day_night.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
@@ -46,6 +47,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const TwitterSplashScreen(),
     const CircleSquareAnimation(),
     const RainbowLoader(),
+    const AnimatedContainerScreen()
     const FiSplashScreen(),
     const DayNightAnimation(),
   ];
