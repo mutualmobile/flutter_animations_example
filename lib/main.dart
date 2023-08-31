@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'animations/circle_square/circle_square.dart';
 import 'animations/day_night.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
+import 'animations/fi_splash/fi_splash.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 
 void main() {
@@ -45,6 +46,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const TwitterSplashScreen(),
     const CircleSquareAnimation(),
     const RainbowLoader(),
+    const FiSplashScreen(),
     const DayNightAnimation(),
   ];
 
