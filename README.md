@@ -2,14 +2,6 @@
 
 ## Animations
 
-Twitter Splash Animation - Aditya Bhawsar
-
-https://github.com/mutualmobile/flutter_animations_example/assets/89836238/a5443af4-5745-48d7-b4b7-39866bf94f83
-
-Circular Square Loading - Aditya Bhawsar
-
-https://github.com/mutualmobile/flutter_animations_example/assets/89836238/128f5c28-44d6-439e-84cb-114d31d4e2bc
-
-Fi Splash screen - Aditya Bhawsar
-
-https://github.com/mutualmobile/flutter_animations_example/assets/89836238/24f58fc4-7244-4504-a25e-125568063adc
+| Twitter Splash  | Circular Square Loader | Fi Splash | Rainbow loader | Day/Night Lamp |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| <video src='https://github.com/mutualmobile/flutter_animations_example/assets/89836238/0da3e05d-875d-411b-acbc-95529a8c4ce8' width=240/> | <video src='https://github.com/mutualmobile/flutter_animations_example/assets/89836238/a21f1ba8-fca5-4a73-9738-7b2f285dbd39' width=240/> | <video src='https://github.com/mutualmobile/flutter_animations_example/assets/89836238/0a2f845b-17b8-4360-ab0b-580238d2cfeb' width=240/> | <video src='https://github.com/mutualmobile/flutter_animations_example/assets/89836238/60c203f0-0fc1-4678-86f1-f8363915da1f' width=240/> | <video src='https://github.com/mutualmobile/flutter_animations_example/assets/89836238/726cd43c-c81e-4328-a7a4-35fccc8b9e75' width=240/> |
