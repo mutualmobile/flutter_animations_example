@@ -15,9 +15,9 @@
     <td><video src = "https://github.com/mutualmobile/flutter_animations_example/assets/89836238/a21f1ba8-fca5-4a73-9738-7b2f285dbd39" width=240/></td> 
   </tr>
   <tr>
+    <th>Fi Splash</th>
     <th>Rainbow loader</th>
     <th>Animated Container Demo</th>
-    <th>Fi Splash</th>
   </tr>
   <tr>
     <td><video src = "https://github.com/mutualmobile/flutter_animations_example/assets/89836238/0a2f845b-17b8-4360-ab0b-580238d2cfeb" width=240/></td>
