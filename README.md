@@ -24,4 +24,11 @@
     <td><video src = "https://github.com/mutualmobile/flutter_animations_example/assets/89836238/60c203f0-0fc1-4678-86f1-f8363915da1f" width=240/></td>
     <td><video src = "https://github.com/mutualmobile/flutter_animations_example/assets/89836238/74965727-03db-4d2d-9a32-09404bdfbf9b" width=240/></td>
   </tr>
+      <tr>
+    <th>AnimatedSwitcher demo</th>
+  </tr>
+  <tr>
+    <td><video src = "https://github.com/mutualmobile/flutter_animations_example/assets/110823088/9f8172fc-99c0-472a-9cf3-81e37003dc59" width=240/></td>
+  
+  </tr>
 </table>
