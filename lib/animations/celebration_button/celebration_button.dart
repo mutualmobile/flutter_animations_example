@@ -13,12 +13,15 @@ class _CelebrationButtonState extends State<CelebrationButton>
     with TickerProviderStateMixin {
   late AnimationController _translationController;
   late AnimationController _scaleController;
-  late Animation<double> _translateAnim1;
-  late Animation<double> _translateAnim2;
-  late Animation<double> _translateAnim3;
+  late Animation<double> _translateAnim;
   late Animation<double> _scaleAnim;
   static const double _centerPoint = 0.0;
   var iconPositions = <int>[0, 1, 2, 3];
+  var buttonWidthList = <double>[150.0, 145.0];
+  var buttonColorList = <Color>[const Color(0xFFFFED3D), Colors.pink];
+  Color buttonColor = const Color(0xFFFFED3D);
+  double buttonWidth = 150.0;
+  bool isTapped = false;
 
   @override
   void initState() {
@@ -27,14 +30,10 @@ class _CelebrationButtonState extends State<CelebrationButton>
         duration: const Duration(milliseconds: 700), vsync: this)
       ..addListener(() => setState(() {}));
     _scaleController = AnimationController(
-        duration: const Duration(milliseconds: 3000), vsync: this)
+        duration: const Duration(milliseconds: 2700), vsync: this)
       ..addListener(() => setState(() {}));
 
-    _translateAnim1 = Tween(begin: 0.0, end: 90.0).animate(CurvedAnimation(
-        parent: _translationController, curve: Curves.fastOutSlowIn));
-    _translateAnim2 = Tween(begin: 0.0, end: 45.0).animate(CurvedAnimation(
-        parent: _translationController, curve: Curves.fastOutSlowIn));
-    _translateAnim3 = Tween(begin: 0.0, end: 120.0).animate(CurvedAnimation(
+    _translateAnim = Tween(begin: 0.0, end: 40.0).animate(CurvedAnimation(
         parent: _translationController, curve: Curves.fastOutSlowIn));
     _scaleAnim = Tween(begin: 1.0, end: 0.0).animate(
         CurvedAnimation(parent: _scaleController, curve: Curves.fastOutSlowIn));
@@ -48,79 +47,80 @@ class _CelebrationButtonState extends State<CelebrationButton>
         alignment: Alignment.center,
         children: [
           animatedWidget(
-            _centerPoint + _translateAnim1.value,
-            _centerPoint + _translateAnim1.value,
+            _centerPoint + (_translateAnim.value * 2),
+            _centerPoint + (_translateAnim.value * 2),
             iconPositions[0],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint + _translateAnim2.value,
-            _centerPoint + _translateAnim2.value,
+            _centerPoint + _translateAnim.value,
+            _centerPoint + _translateAnim.value,
             iconPositions[1],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint + _translateAnim1.value,
-            _centerPoint - _translateAnim1.value,
+            _centerPoint + (_translateAnim.value * 2),
+            _centerPoint - (_translateAnim.value * 2),
             iconPositions[2],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint + _translateAnim2.value,
-            _centerPoint - _translateAnim2.value,
+            _centerPoint + _translateAnim.value,
+            _centerPoint - _translateAnim.value,
             iconPositions[3],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint - _translateAnim1.value,
-            _centerPoint + _translateAnim1.value,
+            _centerPoint - (_translateAnim.value * 2),
+            _centerPoint + (_translateAnim.value * 2),
             iconPositions[0],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint - _translateAnim2.value,
-            _centerPoint + _translateAnim2.value,
+            _centerPoint - _translateAnim.value,
+            _centerPoint + _translateAnim.value,
             iconPositions[2],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint - _translateAnim1.value,
-            _centerPoint - _translateAnim1.value,
+            _centerPoint - (_translateAnim.value * 2),
+            _centerPoint - (_translateAnim.value * 2),
             iconPositions[1],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint - _translateAnim2.value,
-            _centerPoint - _translateAnim2.value,
+            _centerPoint - _translateAnim.value,
+            _centerPoint - _translateAnim.value,
             iconPositions[3],
             _scaleAnim.value,
           ),
           animatedWidget(
             _centerPoint,
-            _centerPoint - _translateAnim1.value,
+            _centerPoint - (_translateAnim.value * 2),
             iconPositions[1],
             _scaleAnim.value,
           ),
           animatedWidget(
             _centerPoint,
-            _centerPoint + _translateAnim1.value,
+            _centerPoint + (_translateAnim.value * 2),
             iconPositions[3],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint + _translateAnim3.value,
+            _centerPoint + (_translateAnim.value * 3),
             _centerPoint,
             iconPositions[0],
             _scaleAnim.value,
           ),
           animatedWidget(
-            _centerPoint - _translateAnim3.value,
+            _centerPoint - (_translateAnim.value * 3),
             _centerPoint,
             iconPositions[2],
             _scaleAnim.value,
           ),
-          FilledButton(
-              onPressed: () {
+          Material(
+            child: InkWell(
+              onTap: () {
                 if (_translationController.isCompleted) {
                   iconPositions.shuffle();
                   _translationController.reset();
@@ -131,8 +131,44 @@ class _CelebrationButtonState extends State<CelebrationButton>
                   _translationController.forward();
                   _scaleController.forward();
                 }
-              }, // call start method to begin animation
-              child: const Text('Click to Celebrate')),
+              },
+              onTapDown: (TapDownDetails details) {
+                setState(() {
+                  buttonColor = buttonColorList.last;
+                  buttonWidth = buttonWidthList.last;
+                  isTapped = true;
+                });
+              },
+              onTapUp: (TapUpDetails details) {
+                setState(() {
+                  buttonColor = buttonColorList.first;
+                  buttonWidth = buttonWidthList.first;
+                  isTapped = false;
+                });
+              },
+              child: Container(
+                  alignment: Alignment.center,
+                  width: buttonWidth,
+                  height: 34,
+                  decoration: BoxDecoration(
+                      color: buttonColor,
+                      border: Border.all(color: Colors.black, width: 0.5),
+                      borderRadius: BorderRadius.circular(6.0),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black87,
+                          offset: Offset(-6.0, 6.0),
+                        ),
+                        BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(-7.0, 7.0),
+                          blurRadius: 40.0,
+                          blurStyle: BlurStyle.outer,
+                        ),
+                      ]),
+                  child: buttonText(isTapped)),
+            ),
+          ),
           const Positioned(
             left: 0,
             right: 0,
@@ -154,6 +190,22 @@ class _CelebrationButtonState extends State<CelebrationButton>
   void dispose() {
     _translationController.dispose();
     super.dispose();
+  }
+}
+
+Widget buttonText(bool isButtonDown) {
+  if (isButtonDown) {
+    return const Text(
+      'Click to Celebrate',
+      style: TextStyle(
+          fontSize: 12.0, color: Colors.black, fontWeight: FontWeight.bold),
+    );
+  } else {
+    return const Text(
+      'Click to Celebrate',
+      style: TextStyle(
+          fontSize: 13.0, color: Colors.black, fontWeight: FontWeight.w400),
+    );
   }
 }
 
