@@ -6,6 +6,7 @@ import 'animations/animated_container/animated_container.dart';
 import 'animations/day_night.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
+import 'animations/ripple_wave/ripple_wave.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 
 void main() {
@@ -50,6 +51,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
+    const RippleAnimationScreen()
   ];
 
   @override
