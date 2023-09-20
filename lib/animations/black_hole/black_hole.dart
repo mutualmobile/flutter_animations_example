@@ -10,7 +10,8 @@ class BlackHole extends StatefulWidget {
 }
 
 class _BlackHoleState extends State<BlackHole> with TickerProviderStateMixin {
-  late AnimationController _controller;
+  late AnimationController _rotationController;
+  late AnimationController _scaleController;
   late Animation<double> _rotateAnimation;
   late Animation<double> _borderRadiusAnimation;
   late Animation<double> _scaleAnimation;
@@ -19,32 +20,23 @@ class _BlackHoleState extends State<BlackHole> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    //animation controller
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 4),
-    )
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          _controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          _controller.forward();
-        }
-      })
-      ..forward();
+    //rotation animation controller
+    _rotationController = getAnimationController(4);
+    setAnimationListener(_rotationController);
+
+    //scale animation controller
+    _scaleController = getAnimationController(8);
+    setAnimationListener(_scaleController);
 
     //rotation animation
     _rotateAnimation = Tween(begin: 0.0, end: 10.0)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+        .animate(CurvedAnimation(parent: _rotationController, curve: Curves.easeInOut));
     //border radius animation
     _borderRadiusAnimation = Tween(begin: 150.0, end: 120.0)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+        .animate(CurvedAnimation(parent: _rotationController, curve: Curves.easeInOut));
     //black hole scale animation
-    _scaleAnimation = Tween(begin: 1.0, end: 2.0).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.bounceInOut));
+    _scaleAnimation = Tween(begin: 0.95, end: 2.0).animate(
+        CurvedAnimation(parent: _scaleController, curve: Curves.bounceInOut));
   }
 
   @override
@@ -164,5 +156,27 @@ class _BlackHoleState extends State<BlackHole> with TickerProviderStateMixin {
         ],
       ),
     );
+  }
+
+  AnimationController getAnimationController(int duration) {
+    return AnimationController(
+      vsync: this,
+      duration: Duration(seconds: duration),
+    );
+  }
+
+  void setAnimationListener(AnimationController controller) {
+    controller
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          controller.forward();
+        }
+      })
+      ..forward();
   }
 }
