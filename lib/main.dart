@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'animations/deck_of_card/deck_of_card.dart';
 import 'animations/circle_square/circle_square.dart';
 import 'animations/animated_container/animated_container.dart';
 import 'animations/day_night.dart';
@@ -50,6 +51,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
+    const DeckOfCard(),
   ];
 
   @override
