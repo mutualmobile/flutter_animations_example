@@ -69,7 +69,7 @@ class _NeumorphismButtonGridState extends State<NeumorphismButtonGrid> {
           isAsset: true,
           name: "Yugesh Jain",
           email: "yugesh.jain@mutualmobile.com",
-          textColor: Colors.white,
+          textColor: Colors.black,
         ),
       )
     ]);
