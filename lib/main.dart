@@ -8,6 +8,7 @@ import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 import 'animations/slider_animation.dart';
+import 'animations/neumorphic_loading_animation.dart';
 
 void main() {
   makeStatusBarTransparent();
@@ -52,6 +53,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const FiSplashScreen(),
     const DayNightAnimation(),
     const SliderAnimation(),
+    const NeumorphismButtonGrid(),
   ];
 
   @override
