@@ -1,9 +1,18 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
-import 'package:flutter_animations_example/contributors_card.dart';
+import '../../contributors_card.dart';
 
+/// Crazy Square animation
+/// This animation performs:
+/// - Color Changes
+/// - Size Changes
+/// - Rotations
+/// - New Positions
+/// OverView : An automatic play animation that can be used as an
+/// Loading animation, when dragged along Y axis it performs Upside Down
+/// Spring Animation.
+/// TODO : Add Sensors Support
 class SquareContainerAnimation extends StatefulWidget {
   const SquareContainerAnimation({super.key});
 
@@ -14,10 +23,12 @@ class SquareContainerAnimation extends StatefulWidget {
 
 class _SquareContainerAnimationState extends State<SquareContainerAnimation>
     with TickerProviderStateMixin {
+  // Controllers
   late AnimationController _sizeController;
   late AnimationController _rotationController;
   late AnimationController _dragAnimateController;
 
+  // Holding Animation Values
   late Animation<double> _animationOne;
   late Animation<double> _animationTwo;
   late Animation<double> _animationThree;
@@ -32,6 +43,7 @@ class _SquareContainerAnimationState extends State<SquareContainerAnimation>
   void initState() {
     super.initState();
 
+    /// Setting up the Controllers
     _rotationController = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -47,6 +59,7 @@ class _SquareContainerAnimationState extends State<SquareContainerAnimation>
     _dragAnimateController = AnimationController.unbounded(
         vsync: this, duration: const Duration(milliseconds: 1500));
 
+    /// Setting up the Animations with respective intervals
     _animationOne = Tween<double>(
       begin: 100.0,
       end: 0.0,
@@ -139,6 +152,7 @@ class _SquareContainerAnimationState extends State<SquareContainerAnimation>
   @override
   void dispose() {
     super.dispose();
+    // Disposing Controllers as per the best practices.
     _sizeController.dispose();
     _rotationController.dispose();
     _dragAnimateController.dispose();
@@ -161,69 +175,89 @@ class _SquareContainerAnimationState extends State<SquareContainerAnimation>
           });
         },
         onPanEnd: (details) {
-          _runAnimation(details.velocity.pixelsPerSecond, size);
+          _runDraggedReleasedAnimation(details.velocity.pixelsPerSecond, size);
         },
-        child: Center(
-          child: AnimatedBuilder(
-            animation: _sizeController,
-            builder: (context, child) {
-              return Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.identity()
-                  ..rotateY(
-                    _rotationAnimation.value,
-                  ),
-                child: Align(
-                  alignment: _newOffSetAlignment,
-                  child: Stack(
+        child: Stack(
+          children: [
+            Center(
+              child: AnimatedBuilder(
+                animation: _sizeController,
+                builder: (context, child) {
+                  return Transform(
                     alignment: Alignment.center,
-                    children: [
-                      Container(
-                        width: _animationFive.value,
-                        height: _animationFive.value,
-                        decoration: BoxDecoration(
-                          color: Colors.purpleAccent,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
+                    transform: Matrix4.identity()
+                      // Rotate at Different Axis for more fun animations.
+                      ..rotateY(
+                        _rotationAnimation.value,
                       ),
-                      Container(
-                        width: _animationFour.value,
-                        height: _animationFour.value,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
+                    child: Align(
+                      alignment: _newOffSetAlignment,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: _animationFive.value,
+                            height: _animationFive.value,
+                            decoration: BoxDecoration(
+                              color: Colors.purpleAccent,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                          ),
+                          Container(
+                            width: _animationFour.value,
+                            height: _animationFour.value,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                          ),
+                          Container(
+                            width: _animationThree.value,
+                            height: _animationThree.value,
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                          ),
+                          Container(
+                            width: _animationTwo.value,
+                            height: _animationTwo.value,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                          ),
+                          Container(
+                            width: _animationOne.value,
+                            height: _animationOne.value,
+                            decoration: BoxDecoration(
+                              color: Colors.lightBlue,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                          ),
+                        ],
                       ),
-                      Container(
-                        width: _animationThree.value,
-                        height: _animationThree.value,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      Container(
-                        width: _animationTwo.value,
-                        height: _animationTwo.value,
-                        decoration: BoxDecoration(
-                          color: Colors.yellow,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      Container(
-                        width: _animationOne.value,
-                        height: _animationOne.value,
-                        decoration: BoxDecoration(
-                          color: Colors.lightBlue,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const Positioned(
+              left: 0,
+              bottom: 0,
+              child: Padding(
+                // bottom: 32 to avoid parent indicator positioned at bottom
+                padding: EdgeInsets.only(left: 8, right: 8, bottom: 32),
+                child: ContributorsCard(
+                  imageUrl:
+                      "https://avatars.githubusercontent.com/u/52085669?v=4",
+                  isAsset: false,
+                  name: "Niket Jain",
+                  email: "niket.jain@mutualmobile.com",
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -279,7 +313,7 @@ class _SquareContainerAnimationState extends State<SquareContainerAnimation>
       ..forward();
   }
 
-  void _runAnimation(Offset pixelsPerSecond, Size size) {
+  void _runDraggedReleasedAnimation(Offset pixelsPerSecond, Size size) {
     _dragAnimation = _dragAnimateController.drive(
       AlignmentTween(
         begin: _newOffSetAlignment,
@@ -293,6 +327,9 @@ class _SquareContainerAnimationState extends State<SquareContainerAnimation>
     final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
     final unitVelocity = unitsPerSecond.distance;
 
+    // Play with Damping, Stiffness and Mass value
+    // To produce your preferred spring simulation
+    // Kept it very low to produce large spring animation
     const spring = SpringDescription(
       mass: 1,
       stiffness: 50,
