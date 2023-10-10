@@ -59,9 +59,9 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const RippleAnimationScreen(),
     const SquareContainerAnimation(),
     const AnimatedSwitcherScreen(),
-    const FABMenuAnimation()
+    const FABMenuAnimation(),
     const SliderAnimation(),
-    const SquareContainerAnimation()
+    const SquareContainerAnimation(),
     const NeumorphismButtonGrid(),
   ];
 
