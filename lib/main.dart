@@ -52,7 +52,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
-    const SquareContainerAnimation()
+    const SquareContainerAnimation(),
     const AnimatedSwitcherScreen()
   ];
 
