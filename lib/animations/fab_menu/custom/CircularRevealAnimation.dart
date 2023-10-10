@@ -1,4 +1,14 @@
-import 'package:flutter/material.dart' show Alignment, AnimatedBuilder, Animation, AnimationController, BuildContext, ClipPath, Offset, StatelessWidget, Widget;
+import 'package:flutter/material.dart'
+    show
+        Alignment,
+        AnimatedBuilder,
+        Animation,
+        AnimationController,
+        BuildContext,
+        ClipPath,
+        Offset,
+        StatelessWidget,
+        Widget;
 import 'CircularRevealClipper.dart';
 
 class CircularRevealAnimation extends StatelessWidget {
@@ -19,7 +29,8 @@ class CircularRevealAnimation extends StatelessWidget {
   ///
   /// [minRadius] minimum radius of circular reveal. 0 if not if not specified.
   /// [maxRadius] maximum radius of circular reveal. Distance from center to further child's corner if not specified.
-  const CircularRevealAnimation({super.key,
+  const CircularRevealAnimation({
+    super.key,
     required this.child,
     required this.animation,
     this.centerAlignment,

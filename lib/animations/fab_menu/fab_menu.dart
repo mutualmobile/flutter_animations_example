@@ -9,9 +9,7 @@ class FABMenuAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Animation Demo',
-      theme: ThemeData(
-          colorSchemeSeed : Colors.blue, useMaterial3: true
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
       home: const _FABMenuState(title: 'FAB Menu Animation'),
       debugShowCheckedModeBanner: false,
     );
@@ -19,7 +17,7 @@ class FABMenuAnimation extends StatelessWidget {
 }
 
 class _FABMenuState extends StatefulWidget {
-  const _FABMenuState({super.key, required this.title});
+  const _FABMenuState({required this.title});
 
   final String title;
 
@@ -27,7 +25,8 @@ class _FABMenuState extends StatefulWidget {
   State<_FABMenuState> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<_FABMenuState>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> animation;
   Directions _direction = Directions.left;
@@ -56,17 +55,21 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
   }
 
   //TODO make more dynamic / custom menu builder
-  List<Widget> buildFABMenuStack(){
+  List<Widget> buildFABMenuStack() {
     const int multiplier = 55;
 
     List<Widget> widgetList = [];
-    for(var i = 0; i < list.length; i++) {
+    for (var i = 0; i < list.length; i++) {
       MenuItem item = list[i];
       widgetList.add(AnimatedPositioned(
-        duration: Duration(milliseconds: ((i+1)*300)),
+        duration: Duration(milliseconds: ((i + 1) * 300)),
         curve: Curves.linearToEaseOut,
-        bottom: (_direction == Directions.top) ? (_expanded ? ((i+1)*multiplier) + 10 : 5) : 5,
-        right: (_direction == Directions.top) ? 5 : (_expanded ? ((i+1)*multiplier) + 10 : 5),
+        bottom: (_direction == Directions.top)
+            ? (_expanded ? ((i + 1) * multiplier) + 10 : 5)
+            : 5,
+        right: (_direction == Directions.top)
+            ? 5
+            : (_expanded ? ((i + 1) * multiplier) + 10 : 5),
         child: IconButton(
           onPressed: () {
             setState(() {
@@ -81,17 +84,15 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
         ),
       ));
     }
-    widgetList.add(
-        Positioned(
-          right: 0,
-          bottom: 0,
-          child: FloatingActionButton(
-            shape: const CircleBorder(),
-            onPressed: _toggleMenu,
-            child: const Icon(Icons.add),
-          ),
-        )
-    );
+    widgetList.add(Positioned(
+      right: 0,
+      bottom: 0,
+      child: FloatingActionButton(
+        shape: const CircleBorder(),
+        onPressed: _toggleMenu,
+        child: const Icon(Icons.add),
+      ),
+    ));
     return widgetList;
   }
 
@@ -109,8 +110,8 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
         title: Text(widget.title, style: const TextStyle(color: Colors.white)),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(15),
-            bottomLeft: Radius.circular(15)),
+              bottomRight: Radius.circular(15),
+              bottomLeft: Radius.circular(15)),
         ),
         centerTitle: true,
       ),
@@ -118,7 +119,8 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
         child: Column(
           children: <Widget>[
             const ContributorsCard(
-              imageUrl: "https://ca.slack-edge.com/T02TLUWLZ-UD73DHXAT-a81c5d456ada-512",
+              imageUrl:
+                  "https://ca.slack-edge.com/T02TLUWLZ-UD73DHXAT-a81c5d456ada-512",
               name: "Harin Trivedi",
               email: "harin.trivedi@mutualmobile.com",
             ),
@@ -132,13 +134,11 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
             SegmentedButton<Directions>(
               segments: const <ButtonSegment<Directions>>[
                 ButtonSegment<Directions>(
-                    value: Directions.left,
-                    label: Text('LEFT')),
+                    value: Directions.left, label: Text('LEFT')),
                 ButtonSegment<Directions>(
-                    value: Directions.top,
-                    label: Text('TOP')),
+                    value: Directions.top, label: Text('TOP')),
               ],
-              selected: <Directions>{ _direction },
+              selected: <Directions>{_direction},
               showSelectedIcon: false,
               onSelectionChanged: (Set<Directions> newSelection) {
                 setState(() {
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
               },
             ),
             const SizedBox(height: 10),
-            CircularRevealAnimation( //TODO make full size container
+            CircularRevealAnimation(
               animation: animation,
               centerOffset: const Offset(100, 100),
               child: Container(
@@ -155,15 +155,12 @@ class _MyHomePageState extends State<_FABMenuState> with SingleTickerProviderSta
                     color: Colors.blue,
                     shape: BoxShape.rectangle,
                     border: Border.all(color: Colors.white),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
-                ),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                 width: 200,
                 height: 200,
                 alignment: Alignment.center,
-                child: Text(
-                    _title,
-                    style: const TextStyle(color: Colors.white, fontSize: 25)
-                ),
+                child: Text(_title,
+                    style: const TextStyle(color: Colors.white, fontSize: 25)),
               ),
             ),
             const Spacer(),
@@ -190,6 +187,5 @@ class MenuItem {
 enabledFilledButtonStyle(bool selected, ColorScheme colors) {
   return IconButton.styleFrom(
       foregroundColor: selected ? colors.onPrimary : colors.primary,
-      backgroundColor: selected ? colors.primary : colors.surfaceVariant
-  );
+      backgroundColor: selected ? colors.primary : colors.surfaceVariant);
 }
