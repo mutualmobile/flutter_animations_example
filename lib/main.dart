@@ -8,6 +8,7 @@ import 'animations/day_night.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
+import 'animations/animated_switcher/animated_switcher.dart';
 
 void main() {
   makeStatusBarTransparent();
@@ -51,7 +52,8 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
-    const SquareContainerAnimation()
+    const SquareContainerAnimation(),
+    const AnimatedSwitcherScreen()
   ];
 
   @override
