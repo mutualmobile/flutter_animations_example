@@ -29,11 +29,11 @@ class _BlackHoleState extends State<BlackHole> with TickerProviderStateMixin {
     setAnimationListener(_scaleController);
 
     //rotation animation
-    _rotateAnimation = Tween(begin: 0.0, end: 10.0)
-        .animate(CurvedAnimation(parent: _rotationController, curve: Curves.easeInOut));
+    _rotateAnimation = Tween(begin: 0.0, end: 10.0).animate(
+        CurvedAnimation(parent: _rotationController, curve: Curves.easeInOut));
     //border radius animation
-    _borderRadiusAnimation = Tween(begin: 150.0, end: 120.0)
-        .animate(CurvedAnimation(parent: _rotationController, curve: Curves.easeInOut));
+    _borderRadiusAnimation = Tween(begin: 150.0, end: 120.0).animate(
+        CurvedAnimation(parent: _rotationController, curve: Curves.easeInOut));
     //black hole scale animation
     _scaleAnimation = Tween(begin: 0.95, end: 2.0).animate(
         CurvedAnimation(parent: _scaleController, curve: Curves.bounceInOut));
