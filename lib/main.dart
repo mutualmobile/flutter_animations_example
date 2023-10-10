@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'animations/celebration_button/celebration_button.dart';
 import 'animations/deck_of_card/deck_of_card.dart';
 import 'animations/circle_square/circle_square.dart';
 import 'animations/animated_container/animated_container.dart';
+import 'animations/crazy_squares/square_container_animation.dart';
 import 'animations/day_night.dart';
+import 'animations/fab_menu/fab_menu.dart';
+import 'animations/black_hole/black_hole.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
+import 'animations/ripple_wave/ripple_wave.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
+import 'animations/animated_switcher/animated_switcher.dart';
+import 'animations/slider_animation.dart';
+import 'animations/neumorphic_loading_animation.dart';
 
 void main() {
   makeStatusBarTransparent();
@@ -51,6 +59,15 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
+    const RippleAnimationScreen(),
+    const SquareContainerAnimation(),
+    const AnimatedSwitcherScreen(),
+    const FABMenuAnimation(),
+    const SliderAnimation(),
+    const SquareContainerAnimation(),
+    const NeumorphismButtonGrid(),
+    const CelebrationButton(),
+    const BlackHole(),
     const DeckOfCard(),
   ];
 
