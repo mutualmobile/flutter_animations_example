@@ -7,6 +7,7 @@ import 'animations/animated_container/animated_container.dart';
 import 'animations/crazy_squares/square_container_animation.dart';
 import 'animations/day_night.dart';
 import 'animations/fab_menu/fab_menu.dart';
+import 'animations/black_hole/black_hole.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
 import 'animations/ripple_wave/ripple_wave.dart';
@@ -65,6 +66,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const SquareContainerAnimation(),
     const NeumorphismButtonGrid(),
     const CelebrationButton(),
+    const BlackHole(),
   ];
 
   @override
