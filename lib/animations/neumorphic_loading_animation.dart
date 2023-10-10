@@ -112,7 +112,7 @@ class _NeumorphismButtonState extends State<NeumorphismButton> {
                 boxShadow: widget.isPressed
                     ? [
                         BoxShadow(
-                          color: Colors.grey[500]!,
+                          color: Colors.grey.shade500,
                           offset: const Offset(4, 4),
                           blurRadius: 15,
                           spreadRadius: 1,
