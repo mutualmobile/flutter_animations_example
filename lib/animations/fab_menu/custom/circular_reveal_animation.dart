@@ -9,7 +9,7 @@ import 'package:flutter/material.dart'
         Offset,
         StatelessWidget,
         Widget;
-import 'CircularRevealClipper.dart';
+import 'circular_reveal_clipper.dart';
 
 class CircularRevealAnimation extends StatelessWidget {
   final Alignment? centerAlignment;

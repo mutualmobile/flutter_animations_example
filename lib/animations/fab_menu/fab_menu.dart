@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custom/CircularRevealAnimation.dart';
+import 'custom/circular_reveal_animation.dart';
 import '../../contributors_card.dart';
 
 class FABMenuAnimation extends StatelessWidget {
