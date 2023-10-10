@@ -7,6 +7,7 @@ import 'animations/crazy_squares/square_container_animation.dart';
 import 'animations/day_night.dart';
 import 'animations/rainbow_loader/rainbow_loader.dart';
 import 'animations/fi_splash/fi_splash.dart';
+import 'animations/ripple_wave/ripple_wave.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 import 'animations/animated_switcher/animated_switcher.dart';
 
@@ -52,6 +53,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const AnimatedContainerScreen(),
     const FiSplashScreen(),
     const DayNightAnimation(),
+    const RippleAnimationScreen(),
     const SquareContainerAnimation(),
     const AnimatedSwitcherScreen()
   ];
