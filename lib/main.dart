@@ -12,6 +12,7 @@ import 'animations/ripple_wave/ripple_wave.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 import 'animations/animated_switcher/animated_switcher.dart';
 import 'animations/slider_animation.dart';
+import 'animations/neumorphic_loading_animation.dart';
 
 void main() {
   makeStatusBarTransparent();
@@ -58,9 +59,10 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const RippleAnimationScreen(),
     const SquareContainerAnimation(),
     const AnimatedSwitcherScreen(),
-    const FABMenuAnimation()
+    const FABMenuAnimation(),
     const SliderAnimation(),
-    const SquareContainerAnimation()
+    const SquareContainerAnimation(),
+    const NeumorphismButtonGrid(),
   ];
 
   @override
