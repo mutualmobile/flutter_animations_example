@@ -42,7 +42,6 @@ class _SliderAnimationState extends State<SliderAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    final reversedArtistList = artists.reversed.toList();
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.dark,
@@ -50,7 +49,7 @@ class _SliderAnimationState extends State<SliderAnimation> {
       child: Stack(
         children: <Widget>[
           Stack(
-            children: reversedArtistList.map((artist) {
+            children: artists.reversed.toList().map((artist) {
               return ImageSlider(
                 pageValue: pageValue,
                 image: artist.image,
