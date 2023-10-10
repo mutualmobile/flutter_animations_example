@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'animations/celebration_button/celebration_button.dart';
 import 'animations/circle_square/circle_square.dart';
 import 'animations/animated_container/animated_container.dart';
 import 'animations/crazy_squares/square_container_animation.dart';
@@ -63,6 +64,7 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const SliderAnimation(),
     const SquareContainerAnimation(),
     const NeumorphismButtonGrid(),
+    const CelebrationButton(),
   ];
 
   @override
