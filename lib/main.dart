@@ -11,6 +11,7 @@ import 'animations/fi_splash/fi_splash.dart';
 import 'animations/ripple_wave/ripple_wave.dart';
 import 'animations/twitter_splash/twitter_splash.dart';
 import 'animations/animated_switcher/animated_switcher.dart';
+import 'animations/slider_animation.dart';
 
 void main() {
   makeStatusBarTransparent();
@@ -58,6 +59,8 @@ class _AnimationsCarouselState extends State<AnimationsCarousel> {
     const SquareContainerAnimation(),
     const AnimatedSwitcherScreen(),
     const FABMenuAnimation()
+    const SliderAnimation(),
+    const SquareContainerAnimation()
   ];
 
   @override
