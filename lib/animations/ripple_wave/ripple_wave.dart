@@ -111,7 +111,8 @@ class RippleWaveAnimationState extends State<RippleWaveAnimation>
                         gradient: RadialGradient(
                           colors: <Color>[
                             widget.rippleColor,
-                            Color.lerp(widget.rippleColor, Colors.black, .04) ?? widget.rippleColor,
+                            Color.lerp(widget.rippleColor, Colors.black, .04) ??
+                                widget.rippleColor,
                           ],
                         ),
                       ),
